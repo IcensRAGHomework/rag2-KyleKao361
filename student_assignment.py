@@ -27,5 +27,5 @@ def hw02_2(q2_pdf):
     is_separator_regex=True  # 啟用正則表達式模式
         )
     
-    return len(splitter2.split_documents(docs))
+    return len(splitter2.split_text(text))
 

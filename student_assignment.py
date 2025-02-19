@@ -11,9 +11,7 @@ def hw02_1(q1_pdf):
     docs = loader.load()
     splitter = CharacterTextSplitter()
     result = splitter.split_documents(docs)
-    return result[-1].page_content
+    return result[-1]
 
 def hw02_2(q2_pdf):
     pass
-
-print(hw02_1('./OpenSourceLicenses.pdf'))

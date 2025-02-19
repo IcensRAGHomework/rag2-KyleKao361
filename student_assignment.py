@@ -7,7 +7,13 @@ q2_pdf = "勞動基準法.pdf"
 
 
 def hw02_1(q1_pdf):
-    pass
+    loader = PyPDFLoader(q1_pdf)
+    docs = loader.load()
+    splitter = CharacterTextSplitter()
+    result = splitter.split_documents(docs)
+    return result[-1].page_content
 
 def hw02_2(q2_pdf):
     pass
+
+print(hw02_1('./OpenSourceLicenses.pdf'))

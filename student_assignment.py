@@ -17,9 +17,7 @@ def hw02_1(q1_pdf):
 def hw02_2(q2_pdf):
     loader = PyPDFLoader(q2_pdf)
     docs = loader.load()
-    text = ''
-    for page in docs:
-        text += page.page_content
+    full_text = "\n".join([page.page_content for page in docs])
     splitter2 = RecursiveCharacterTextSplitter(
            separators=[r'\n\s*第\s*.{1,3}\s*章', r'\n\s*第\s*.{1,5}\s*條'],  # 使用正則表達式來匹配 "第 [中文數字] 章" 或 "第 [阿拉伯數字] 條"
     chunk_size=10,
@@ -27,5 +25,7 @@ def hw02_2(q2_pdf):
     is_separator_regex=True  # 啟用正則表達式模式
         )
     
-    return len(splitter2.split_text(text))
+    return len(splitter2.split_text(full_text))
+
+print(hw02_2(q2_pdf))
 

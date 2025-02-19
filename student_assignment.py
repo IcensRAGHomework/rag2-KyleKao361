@@ -19,7 +19,7 @@ def hw02_2(q2_pdf):
     docs = loader.load()
     full_text = "\n".join([page.page_content for page in docs])
     splitter2 = RecursiveCharacterTextSplitter(
-           separators=[r'\n\s*第\s*.{1,3}\s*章', r'\n\s*第\s*.{1,5}\s*條'],  # 使用正則表達式來匹配 "第 [中文數字] 章" 或 "第 [阿拉伯數字] 條"
+           separators=[r"第 (?:.*) (?:條|章)(?: |\n)"],  # 使用正則表達式來匹配 "第 [中文數字] 章" 或 "第 [阿拉伯數字] 條"
     chunk_size=10,
     chunk_overlap=0,
     is_separator_regex=True  # 啟用正則表達式模式
